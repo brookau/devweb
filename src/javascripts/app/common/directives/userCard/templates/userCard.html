@@ -1,0 +1,78 @@
+<div class="user-card text-center">
+  <follow-button ng-if="!isMe" class="btn-follow" user-id="userId"></follow-button>
+
+  <p class="padding-25">
+    <img height="60" ng-src="{{ user | parseAvatar }}" default-src class="img-circle" alt="">
+  </p>
+
+  <div class="user-info">
+    <p>
+      <b>{{user.username}}</b>
+    </p>
+
+    <p>
+      {{user.bio}}
+    </p>
+  </div>
+
+  <ul class="user-card-list padding-25">
+    <li ng-if="isMe" ng-click="changeLocation()">
+      <span class="left">My Feeds</span> <span class="right">{{user.mentionsfeed_total}}</span>
+    </li>
+    <li ng-click="changeLocation('followers')">
+      <span class="left">Followers</span> <span class="right">{{user.followers}}</span>
+    </li>
+    <li ng-click="changeLocation('following')">
+      <span class="left">Following</span> <span class="right">{{user.following}}</span>
+    </li>
+    <li ng-if="!isMe" ng-click="changeLocation('posts')">
+      <span class="left">Posts</span> <span class="right">{{user.posts}}</span>
+    </li>
+    <li ng-if="isMe" ng-click="changeLocation('pending')">
+      <span class="left">Pending posts</span> <span class="right">{{user.posts_pending}}</span>
+    </li>
+    <li ng-click="changeLocation('favorites')">
+      <span class="left">Favorites</span> <span class="right">{{user.favorites}}</span>
+    </li>
+    <li ng-click="changeLocation('tags')">
+      <span class="left">Tags</span> <span class="right">{{user.tags_follow}}</span>
+    </li>
+    <li ng-if="isMe" ng-click="changeLocation('history/posts')">
+      <span class="left">History</span>
+    </li>
+  </ul>
+
+  <div class="clearfix">
+    <div class="pull-right user-menu">
+      <span class="dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-ellipsis-h fa-lg"></i>
+      </span>
+      <ul ng-if="!isMe" class="dropdown-menu" role="menu">
+        <li ng-if="!isBlocked(userId)">
+          <a href block-user user-id="userId">Block user</a>
+        </li>
+        <li ng-if="isBlocked(userId)">
+          <a href block-user user-id="userId">Unblock user</a>
+        </li>
+        <li>
+          <a href report target="users" target-id="userId" show-reason="true">Report inappropiate</a>
+        </li>
+      </ul>
+      <ul ng-if="isMe" class="dropdown-menu" role="menu">
+        <li>
+          <a href="/profile">Edit profile</a>
+        </li>
+        <li>
+          <a href ng-click="changeLocation('blocked')">Blocked users</a>
+        </li>
+        <li>
+          <a href="/dashboard/payments/settings">Payment Settings</a>
+        </li>
+        <li>
+          <a href="/dashboard/payments/history">Payment History</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+

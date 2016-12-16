@@ -1,0 +1,19 @@
+<div class="search-results slim-outer container">
+  <div class="row" class="content-has-padding">
+    <div class="ernr-status-bar">
+      <div class="left-items">
+        <i class="fa fa-plus"></i>
+        <span ng-show="!isLoading">Search Results</span>
+        <span ng-show="isLoading">Loading...</span>
+      </div>
+    </div>
+
+    <div class="horizontal-line"></div>
+    <div class="horizontal-line-gallery"></div>
+    <div infinite-scroll="loadMore()" infinite-scroll-distance="2"
+         infinite-scroll-disabled='onLoading'>
+        <div class="feed" feed="item" ng-repeat="item in items" class="search-results-item"></div>
+    </div>
+    <div ng-hide="items.length">No feeds</div>
+  </div>
+</div>

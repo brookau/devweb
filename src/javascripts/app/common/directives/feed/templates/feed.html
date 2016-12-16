@@ -1,0 +1,36 @@
+<div class="gallery-item-wrapper">
+    <div class="info-line">
+        <div class="pull-left">
+            <i class="fa fa-database"></i> ${{feed.balance}}
+        </div>
+
+        <div class="pull-right">
+            <a href voteup model="feed"><i class="fa fa-arrow-up fa-fw post-vote-up"></i></a>
+            <span>{{feed.votessum}}</span>
+            <a href votedown model="feed"><i class="fa fa-arrow-down fa-fw post-vote-down"></i></a>
+            <span like model="feed"></span>
+            <span refresh model="feed"></span>
+            <span share model="feed"></span>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="image-wrapper">
+        <a href="/post/{{feed.id}}">
+            <img alt="Post image" ng-src="{{ feed | parseThumb }}">
+        </a>
+        <div class="post-type-icon" ng-switch="feed.type">
+            <i ng-switch-when="text" class="fa fa-pencil"></i>
+            <i ng-switch-when="image" class="fa fa-camera"></i>
+            <i ng-switch-when="video" class="fa fa-video-camera"></i>
+            <i ng-switch-when="audio" class="fa fa-headphones"></i>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="description-name-wrapper">
+        <div class="item-description">
+            <a href="/post/{{feed.id}}">{{feed.title}}</a>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+

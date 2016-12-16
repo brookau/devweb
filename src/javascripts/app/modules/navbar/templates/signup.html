@@ -1,0 +1,59 @@
+<div class="container">
+  <h2 class="form-create-heading">Create new account</h2>
+  <div ng-switch="state">
+    <div ng-switch-when="form">
+      <form class="sign-up-form"  name="signUpForm" novalidate>
+        <input type="text" ng-model="data.username"
+          class="form-control" placeholder="username"
+          name="username" ng-minlength="3" required/>
+        <div ng-messages="signUpForm.username.$error">
+          <div ng-message="minlength">Username is too short</div>
+        </div>
+        <br/>
+
+        <input
+          type="email"
+          ng-model="data.email"
+          class="form-control"
+          placeholder="email"
+          name="email"
+          required/>
+        <div ng-messages="signUpForm.email.$error">
+          <div ng-message="email">Email is invalid</div>
+        </div>
+        <br/>
+
+        <input
+          type="password"
+          ng-model="data.password"
+          class="form-control"
+          placeholder="password"
+          name="password"
+          ng-minlength="6"
+          required/>
+        <div ng-messages="signUpForm.password.$error">
+          <div ng-message="minlength">Password is too short</div>
+        </div>
+        <br/>
+        <div re-captcha ng-model="data.captcha"></div>
+        <br/>
+        <button
+          ng-hide="isPending"
+          ng-disabled="signUpForm.$invalid"
+          class="btn btn-theme btn-block"
+          ng-click="submitDialog()">Sign Up</button>
+        <button ng-show="isPending" class="btn btn-theme btn-block">Loading...</button>
+        <button class="btn btn-theme btn-block" ng-click="closeDialog()">Close</button>
+      </form>
+    </div>
+    <div ng-switch-when="success">
+      <h3>Please confirm your account. We sent link to email.</h3>
+      <button class="btn btn-theme btn-block" ng-click="closeDialog()">Close</button>
+    </div>
+    <div ng-switch-when="error">
+      <h3>{{message}}</h3>
+      <button class="btn btn-theme btn-block" ng-click="showForm()">Try again</button>
+    </div>
+  </div>
+</div>
+

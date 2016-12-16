@@ -1,0 +1,21 @@
+<ul class="dropdown-menu upload-dropdown" role="menu">
+  <li ng-if="!currentUser.isLoggedIn">
+    <a href="/">Please sign in</a>
+  </li>
+
+  <li ng-if="currentUser.isLoggedIn">
+    <a href="" ng-click="openModal('photo')">Upload Photo <i class="fa fa-camera fa-lg upload-photo"></i></a>
+  </li>
+
+  <li ng-if="currentUser.isLoggedIn">
+    <a href="" ng-click="openModal('text')">Upload Text <i class="fa fa-font fa-lg upload-text"></i></a>
+  </li>
+
+  <li ng-if="currentUser.isLoggedIn">
+    <a href="" ng-click="openModal('audio')">Upload Audio <i class="fa fa-headphones fa-lg upload-audio"></i></a>
+  </li>
+
+  <li ng-if="currentUser.isLoggedIn">
+    <a href="" ng-click="openModal('video')">Upload Video <i class="fa fa-video-camera fa-lg upload-video"></i></a>
+  </li>
+</ul>

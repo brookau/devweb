@@ -1,0 +1,250 @@
+<div class="post-profile row">
+  <div class="container">
+  <div class="row post-main-row">
+    <div class="col-md-7 col-sm-12 col-lg-7">
+      <div class="post gary-border">
+        <header class="heading row">
+          <div class="col-md-9 col-sm-9 col-xs-8" ng-class="{ separator: !isMe }">
+            <a href="/users/{{post.user_id}}" class="img-box">
+              <img height="50" ng-if="post" ng-src="{{ post | parseAvatar }}" default-src class="img-circle" alt="">
+            </a>
+
+            <a href="/users/{{post.user_id}}" ng-if="post"><b>{{post | parseName}}</b></a>
+          </div>
+
+          <div class="col-md-3 col-sm-3 col-xs-4">
+            <follow-button class="follow-button" ng-if="!isMe" user-id="post.user_id"></follow-button>
+          </div>
+        </header>
+        <hr />
+        <section class="post-body">
+          <div class="post-title">
+            <span class="pull-left">
+              {{post.title | limitTo:100}}
+            </span>
+
+            <div class="pull-right post-menu">
+              <span class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-ellipsis-h fa-lg"></i>
+              </span>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a href>Reshare</a>
+                </li>
+                <li>
+                  <a href>Share on Twitter</a>
+                </li>
+                <li>
+                  <a href>Share on Facebook</a>
+                </li>
+                <li>
+                  <a href>Share on Instragram</a>
+                </li>
+                <li>
+                  <a href>Copy link</a>
+                </li>
+                <li>
+                  <a href report target="posts" target-id="post.id" show-reason="true">Flag Content</a>
+                </li>
+                <li ng-if="isMe">
+                  <a href>Delete post</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div ng-switch="post.type" class="post-content">
+              <textarea id="testQ" rows="20" cols="80">
+{ "query": {
+      "function_score": {
+        "query": {
+            "filtered" : { 
+                 "query" : {
+                    "query_string" : {
+                        "fields": ["title","tags"],
+                        "query":"*",
+                        "default_operator" : "OR"
+                    }
+                 },
+                 "filter" : {
+                    "range" : {
+                      "cdate" : {
+                         "gt" : "now-72h"
+                      }
+                   }
+                 }
+              }
+         },
+         "functions": [
+            {
+               "gauss": {
+                    "cdate": {
+                          "scale": "3d",
+                          "offset": "0d",
+                          "decay" : 0.2
+                    }
+                }
+            },
+            {
+                "script_score" : {
+                    "script" : "_score * (100 + doc['views'].value + 100 * doc['votes'].value + 200 * doc['comments'].value + 500 * doc['favorites'].value + 1000 * doc['sharing'].value)"
+                }
+            }
+         ],
+        "score_mode": "sum"
+      }
+   }
+}
+ 
+              </textarea>
+          </div>
+          <div class="description"
+               ng-if="post"
+               ng-bind-html="post.description | limitTo:255 | tagToLink | nameToLink | unsafe"></div>
+        </section>
+
+        <section class="vote-action row text-center">
+          <div class="col-md-6 col-xs-6 no-padding">
+            <div class="votedown">
+              <button votedown model="post" type="button">
+               
+              </button>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xs-6 no-padding">
+            <div class="voteup">
+              <button ng-click="testQuery()" >
+                TEST DSL QUERY
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="post-action row text-center">
+          <div class="col-md-3 col-xs-3 separator">
+            <span share model="post" ng-if="post"></span>
+          </div>
+          <div class="col-md-3 col-xs-3 separator">
+            <span refresh model="post" ng-if="post"></span>
+          </div>
+          <div class="col-md-3 col-xs-3 separator">
+            <span ng-if="post.id" like model="post"></span>
+          </div>
+          <div class="col-md-3 col-xs-3"><i class="fa fa-expand"></i></div>
+        </section>
+
+        <section class="post-statistic row text-center">
+          <div class="col-md-4 col-xs-4 no-padding">
+            <div class="votesbalance">
+              <i class="fa fa-plus"></i> {{post.votesbalance}}
+            </div>
+          </div>
+          <div class="col-md-4 col-xs-4 no-padding">
+            <div class="votessum">
+              <i class="fa fa-exchange"></i> {{post.votessum}}
+            </div>
+          </div>
+          <div class="col-md-4 col-xs-4 no-padding">
+            <div class="balance">
+              <i class="fa fa-database"></i> {{post.balance}}
+            </div>
+          </div>
+        </section>
+
+        <section class="share-statistic row text-center">
+          <div class="col-md-3 col-sm-3 col-xs-6 separator"><b>{{post.reshare}}</b> Reshares</div>
+          <div class="col-md-3 col-sm-3 col-xs-6 separator"><b>{{post.favorites}}</b> Favorites</div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <ul class="horizontal-list">
+              <li ng-repeat="user in post.reshareUsers">
+                <img height="34" ng-src="{{user.avatar}}" class="img-circle" alt="" />
+              </li>
+              <li ng-if="post.reshareUsers.length === 0"> — </li>
+            </ul>
+          </div>
+        </section>
+        <hr />
+        <footer class="tags-wrapper">
+          <dl class="tags-list">
+              <dd>
+                  <ul>
+                    <li ng-repeat="tag in post.tags"><a href="/tags/{{tag}}">#{{tag}}</a></li>
+                  </ul>
+              </dd>
+          </dl>
+        </footer>
+      </div>
+      <div class="comments gary-border">
+        <posts-comments post="post" ng-if="post.id"></posts-comments>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-4 col-md-offset-1">
+      <div class="recomendations gary-border">
+        <header class="recomendations-nav row text-center">
+          <div class="col-md-4 col-xs-4">
+            <i class="fa fa-angle-left fa-2x"></i>
+            <b>Back</b>
+          </div>
+
+          <div class="col-md-4 col-xs-4">
+            <i class="fa fa-toggle-off fa-lg"></i>
+          </div>
+
+          <div class="col-md-4 col-xs-4">
+            <b>Next</b>
+            <i class="fa fa-angle-right fa-2x"></i>
+          </div>
+        </header>
+
+        <hr />
+
+        <section class="recomendations-action row text-center">
+          <div class="col-md-3 col-xs-3 separator"><i class="fa fa-video-camera fa-lg"></i></div>
+          <div class="col-md-3 col-xs-3 separator"><i class="fa fa-camera fa-lg"></i></div>
+          <div class="col-md-3 col-xs-3 separator"><i class="fa fa-pencil fa-lg"></i></div>
+          <div class="col-md-3 col-xs-3"><i class="fa fa-headphones fa-lg"></i></div>
+        </section>
+
+        <hr />
+
+        <section class="recomendations-body">
+          
+          <div>
+            <p>Max Score: {{stats.hits.max_score }}</p>
+            <p>Total: {{stats.hits.total }}</p>
+
+          <!-- start of data -->
+          <div class="rabbit-hole" >
+            <ul>
+              <li ng-repeat="p in results">
+                <div class="row">
+                  <a href="/post/{{p.id}}">
+                    {{ p._score }} | {{ p._source.cdate }}
+                  </a>
+                </div>
+
+                <a href="/post/{{p.id}}" class="img-frame">
+                  <img ng-src="http://cdn1.small.rabadaba.com/prod/thumbs/posts/{{p._source.id}}/m/1.{{p._source.thumbtype}}">
+                </a>
+
+                <div class="wrap">
+                  <a href="/post/{{p.id}}">
+                    {{ p._source.title }}
+                  </a>
+                </div>
+              </li>
+            </ul>
+
+            
+          </div>
+          <!-- end of data -->
+          
+          </div>
+
+        </section>
+      </div>
+    </div>
+
+  </div> <!-- row -->
+  </div> <!-- container -->
+</div>

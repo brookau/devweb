@@ -1,0 +1,78 @@
+<div class="comments-wrapper">
+    <div class="comments-header">
+      <i class="fa fa-plus fa-lg"></i>
+      COMMENTS
+
+      <strong class="sorting pull-right" ng-if="total">
+        {{total}}
+      </strong>
+    </div>
+
+    <hr />
+
+    <form ng-submit="createComment()" name="createComentForm" novalidate>
+        <textarea cols="30" rows="10" class="textarea" name="comment"
+            ng-model="comment" ng-maxlength="140" required></textarea>
+        <div ng-messages="createComentForm.comment.$error">
+            <div ng-message="maxlength">Comment is too long</div>
+        </div>
+        <button class="pull-right" type="submit" ng-disabled="createComentForm.$invalid">POST</button>
+    </form>
+
+    <br />
+
+    <div infinite-scroll="loadMore()" infinite-scroll-distance="2"
+         infinite-scroll-disabled='onLoading' class="comments-list">
+        <div class="comment-box wrap" ng-repeat="comment in comments track by $index">
+            <div class="comment-user row">
+              <div class="col-md-5">
+                <a href="/users/{{comment.user_id}}" class="img-box">
+                  <img height="50" ng-src="{{comment.user_avatar}}" class="img-circle" alt="">
+                </a>
+
+                <a href="/users/{{comment.user_id}}"><b>{{comment.user_name}}</b></a>
+              </div>
+
+              <div class="col-md-7 text-right">
+                <span>{{comment.votessum}}</span>
+                <a ng-click="vote(comment.id, 'voteup')">
+                  <i class="fa fa-arrow-up"></i>
+                </a>
+                <a ng-click="vote(comment.id, 'votedown')">
+                  <i class="fa fa-arrow-down"></i>
+                </a>
+                <a href
+                  report target="comments" target-id="comment.id" show-reason="false"
+                  ng-if="currentUser.id !== comment.user_id">
+                  <i class="fa fa-flag"></i>
+                </a>
+                <a
+                  ng-click="remove(comment.id)"
+                  ng-if="currentUser.id === comment.user_id">
+                  <i class="fa fa-trash-o"></i>
+                </a>
+                <a
+                  ng-click="toggleEdit(comment.id, comment.text)"
+                  ng-if="currentUser.id === comment.user_id">
+                  <i class="fa fa-pencil-square-o"></i>
+                </a>
+              </div>
+            </div>
+            <div ng-if="editedComment.id === comment.id">
+              <form ng-submit="editComment()" name="editComentForm" novalidate>
+                  <textarea cols="70" name="editedComment"
+                      ng-model="editedComment.text" ng-maxlength="140" required></textarea>
+                  <div ng-messages="editComentForm.editedComment.$error">
+                      <div ng-message="maxlength">Comment is too long</div>
+                  </div>
+                  <button type="submit" ng-disabled="editComentForm.$invalid">Edit</button>
+                  <button type="button" ng-click="toggleEdit()">Close</button>
+              </form>
+            </div>
+            <div class="frame"
+              ng-if="editedComment.id !== comment.id"
+              ng-bind-html="comment.text | limitTo:140 | tagToLink | nameToLink | unsafe">
+            </div>
+        </div>
+    </div>
+</div>

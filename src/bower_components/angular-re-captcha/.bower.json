@@ -1,0 +1,31 @@
+{
+  "author": "Steffen Müller",
+  "name": "angular-re-captcha",
+  "description": "reCaptcha directive for angularjs",
+  "version": "0.1.0",
+  "homepage": "https://github.com/mllrsohn/angular-re-captcha",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mllrsohn/angular-re-captcha"
+  },
+  "main": "./angular-re-captcha.js",
+  "dependencies": {
+    "angular": "~1.x"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.x"
+  },
+  "resolutions": {
+    "angular": "1.3.13"
+  },
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0",
+    "commit": "e8ebe649b22bac1015cdb7d50b80f19d59c3c3fd"
+  },
+  "_source": "git://github.com/mllrsohn/angular-re-captcha.git",
+  "_target": "~0.1.0",
+  "_originalSource": "angular-re-captcha",
+  "_direct": true
+}

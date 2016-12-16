@@ -1,0 +1,223 @@
+<div class="container sign-in-up-pop-up">
+  <div class="header-img">
+    <img alt="" src="/img/user-ico.png" />
+  </div>
+
+  <div class="sign-tab-wrapper">
+    <span
+      class="sign-up-tab sign-tab-item"
+      ng-click="setState('signup')"
+      ng-class="{ active: state === 'signup' }">
+      sign up
+    </span>
+    <span
+      class="sign-in-tab sign-tab-item"
+      ng-click="setState('signin')"
+      ng-class="{ active: ['signin', 'forgot'].indexOf(state) >= 0  }">
+      login
+    </span>
+  </div>
+
+  <div ng-switch="state">
+    <div ng-switch-when="signin">
+      <form class="form-login" ng-submit="login($event)" name="loginForm" novalidate>
+        <div class="form-field-wrapper">
+          <div class="input-apppend">
+            <input
+              ng-model="data.username"
+              type="text"
+              placeholder="Enter Your Email or Username"
+              name="username"
+              autofocus
+              ng-minlength="3"
+              autocomplete="off"
+              required/>
+            <span class="add-on"><i class="fa fa-envelope-o fa-lg"></i></span>
+            <div ng-messages="loginForm.username.$error">
+              <div class="error-message" ng-message="minlength">Username is too short</div>
+            </div>
+          </div>
+          <hr />
+          <div class="input-apppend">
+            <input
+              ng-model="data.password"
+              type="password"
+              name="password"
+              placeholder="Password"
+              ng-minlength="6"
+              required/>
+            <span class="add-on"><i class="fa fa fa-lock fa-lg"></i></span>
+            <div ng-messages="loginForm.password.$error">
+              <div class="error-message" ng-message="minlength">Password is too short</div>
+            </div>
+          </div>
+        </div>
+        <div class="actions-wrapper">
+          <button
+            class="forgot-btn"
+            type="button"
+            ng-click="setState('forgot')">
+            Forgot password
+          </button>
+          <button
+            ng-hide="isPending"
+            class="login-btn"
+            ng-disabled="loginForm.$invalid"
+            type="submit">
+            Login
+          </button>
+          <button
+            ng-show="isPending"
+            disabled
+            type="button"
+            class="login-btn">
+            Loading...
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div ng-switch-when="signup">
+      <form class="sign-up-form" ng-submit="signUp($event)" name="signUpForm">
+        <div class="form-field-wrapper">
+          <div class="input-apppend">
+            <input
+              ng-model="data.username"
+              type="text"
+              placeholder="Username"
+              name="username"
+              ng-minlength="3"
+              autocomplete="off"
+              required/>
+            <span class="add-on"><i class="fa fa-envelope-o fa-lg"></i></span>
+            <div ng-messages="signUpForm.username.$error">
+              <div class="error-message" ng-message="minlength">Username is too short</div>
+            </div>
+          </div>
+          <hr />
+          <div class="input-apppend">
+            <input
+              ng-model="data.email"
+              type="email"
+              placeholder="Enter Your Email"
+              name="email"
+              required/>
+            <span class="add-on"><i class="fa fa-envelope-o fa-lg"></i></span>
+            <div ng-messages="signUpForm.email.$error">
+              <div class="error-message" ng-message="email">Email is invalid</div>
+            </div>
+          </div>
+          <hr />
+          <div class="input-apppend">
+            <input
+              ng-model="data.password"
+              type="password"
+              placeholder="Password"
+              name="password"
+              ng-minlength="6"
+              required/>
+            <span class="add-on"><i class="fa fa fa-lock fa-lg"></i></span>
+            <div ng-messages="signUpForm.password.$error">
+              <div class="error-message" ng-message="minlength">Password is too short</div>
+            </div>
+          </div>
+          <hr />
+          <div re-captcha ng-model="data.captcha" class="captcha"></div>
+        </div>
+        <div class="actions-wrapper">
+          <button
+            ng-hide="isPending"
+            class="next-btn"
+            ng-disabled="signUpForm.$invalid"
+            type="submit">
+            Send
+          </button>
+          <button
+            ng-show="isPending"
+            disabled
+            type="button"
+            class="next-btn">
+            Loading...
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div ng-switch-when="forgot">
+      <form class="form-login" name="forgotForm">
+        <div class="form-field-wrapper">
+          <div class="input-apppend">
+            <input
+              ng-model="data.email"
+              type="email"
+              placeholder="Enter Your Email"
+              name="email"
+              autofocus />
+            <span class="add-on"><i class="fa fa-envelope-o fa-lg"></i></span>
+          </div>
+        </div>
+        <div class="actions-wrapper">
+          <button
+            class="cancel-btn"
+            type="button"
+            ng-click="setState('signin')">
+            Cancel
+          </button>
+          <button
+            ng-hide="isPending"
+            class="login-btn"
+            type="submit">
+            Send
+          </button>
+          <button
+            ng-show="isPending"
+            disabled
+            type="button"
+            class="login-btn">
+            Loading...
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div ng-switch-when="success">
+      <form class="form-login" name="forgotForm">
+        <div class="form-field-wrapper">
+          <h4>Congratulations!</h4>
+          <h4>Your account has been created.</h4>
+          Click <a ng-click="close()" href="/profile">here</a> to fill in more details.
+        </div>
+        <div class="actions-wrapper">
+          <button
+            class="next-btn"
+            type="button"
+            ng-click="close()">
+            Ok
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div ng-switch-when="error">
+      <form class="form-login" name="forgotForm">
+        <div class="form-field-wrapper">
+          <h3>{{message}}</h3>
+        </div>
+        <div class="actions-wrapper">
+          <button
+            class="next-btn"
+            type="button"
+            ng-click="setPrevState()">
+            Try again
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="skip-footer">
+    <a href ng-click="close()">Skip for now</a>
+    <span>By signing up, you agree to our Terms & Privacy Policy</span>
+  </div>
+</div>
+

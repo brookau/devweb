@@ -1,0 +1,51 @@
+<div class="message-popup">
+  <a href ng-click="closeDialog()" class="close-dialog"><i class="fa fa-times-circle"></i></a>
+  <div class="reason" ng-if="showReason">
+    <ul ng-if="target === 'posts'">
+      <li>
+        <a href ng-click="chooseReason('Flag for NSFW/explicit')">Flag for NSFW/explicit</a>
+      </li>
+      <li>
+        <a href ng-click="chooseReason('Flag for dangerous')">Flag for dangerous</a>
+      </li>
+      <li>
+        <a href ng-click="chooseReason('Flag for copyright')">Flag for copyright</a>
+      </li>
+    </ul>
+
+    <ul ng-if="target === 'comments' || target === 'users'">
+      <li>
+        <a href ng-click="chooseReason('Abuse')">Abuse</a>
+      </li>
+      <li>
+        <a href ng-click="chooseReason('Spam')">Spam</a>
+      </li>
+    </ul>
+  </div>
+
+  <form ng-submit="send()" name="setFlag" novalidate ng-if="!showReason">
+    <div class="report-reason text-center">
+      <h3>{{data.reason}}</h3>
+    </div>
+
+    <hr />
+
+    <div class="message-info row">
+      <div class="col-md-7 separator">
+        <i class="fa fa-pencil"></i>
+        Comment
+      </div>
+      <div class="col-md-5">
+        200 character max
+      </div>
+    </div>
+
+    <textarea name="message" ng-model="data.message" ng-maxlength="200"
+      placeholder="write here" required></textarea>
+
+    <div class="form-actions">
+      <button type="button" ng-click="closeDialog()">Cancel</button>
+      <button type="submit" ng-disabled="setFlag.$invalid">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<div class="thumb-editor" ng-class="{ 'thumb-editor-empty': !img.url }">
+  <div class="overlay" ng-show="edit">
+    <div class="overlay-inner">
+    </div>
+  </div>
+
+  <div ng-class="{ 'resize-container': edit }">
+    <span class="resize-handle resize-handle-nw" ng-if="edit"></span>
+    <span class="resize-handle resize-handle-ne" ng-if="edit"></span>
+    <img ng-show="img.url" class="resize-image" crossorigin="anonymous" ng-src="{{trustSrc(img.url)}}" alt="image for resizing">
+    <span class="resize-handle resize-handle-se" ng-if="edit"></span>
+    <span class="resize-handle resize-handle-sw" ng-if="edit"></span>
+  </div>
+
+  <button class="btn-edit" type="button" ng-click="startEdit()" ng-if="img.url && !edit">Edit</button>
+  <button class="btn-done" type="button" ng-click="finishEdit()" ng-if="edit">Done</button>
+  <button class="btn-crop" type="button" ng-click="crop()" ng-if="edit">Crop</button>
+  <button class="btn-rotate" type="button" ng-click="rotate()" ng-if="edit">Rotate</button>
+  <button class="btn-reset" type="button" ng-click="reset()" ng-if="edit">Reset</button>
+
+  <div class="a-tip" ng-if="!error">
+    <p ng-if="edit"><strong>Hint:</strong> hold <span>SHIFT</span> while resizing to keep the original aspect ratio.</p>
+    <p ng-if="!edit"><strong>Hint:</strong> Drop images here or <a href ng-click="showFilesSelect()">click</a> to upload.</p>
+  </div>
+
+  <div class="a-tip" ng-if="error">
+    <p><strong>Hint:</strong> The image is too large. Please <a href ng-click="showFilesSelect()">select</a> another image.</p>
+  </div>
+
+  <input type="file" ng-show="false" ng-model="files" onchange="angular.element(this).scope().handleFileSelect(this)" />
+</div>

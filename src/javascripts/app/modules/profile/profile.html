@@ -1,0 +1,68 @@
+<div ng-if="isLoggedIn">
+  <div class="profile row">
+    <div class="container">
+      <div class="col col-md-4 col-sm-4">
+        <user-card></user-card>
+      </div>
+
+      <div class="col col-md-8 col-sm-8">
+        <form role="form" name="editProfile" class="row" novalidate ng-submit="save($event)">
+          <div class="col col-md-12 avatar">
+            <div class="avatar-wrapper">
+              <!-- <img ng-src="{{avatar.url}}" class="img-circle" height="80" alt="" />  -->
+              <thumb-editor ng-model="avatar" as-blob="true"></thumb-editor>
+            </div>
+          </div>
+
+          <div class="col col-md-12 bio">
+            <div class="bio-wrapper">
+              <label for="user-bio">
+                <i class="fa fa-pencil ng-scope"></i>Bio:
+              </label>
+              <textarea ng-model="info.bio"></textarea>
+            </div>
+          </div>
+
+          <div class="col col-md-12 field">
+            <label for="user-email">E-mail:</label>
+            <input type="email" id="user-email" disabled placeholder="Email" ng-model="info.email">
+            <hr />
+          </div>
+
+          <div class="col col-md-12 field">
+            <label for="user-name">Username:</label>
+            <input type="text" id="user-name" disabled placeholder="Username" ng-model="info.username">
+            <hr />
+          </div>
+
+          <div class="col col-md-12 field">
+            <label for="user-country">Country:</label>
+            <input type="text" id="user-country" placeholder="country" ng-model="info.country">
+            <hr />
+          </div>
+
+          <div class="col col-md-12 field">
+            <label for="user-language">Language:</label>
+            <input type="text" id="user-language" placeholder="language" ng-model="info.language">
+            <hr />
+          </div>
+
+          <div class="col col-md-12 field">
+            <label for="user-language">Timezone:</label>
+            <input type="text" id="user-timezone" placeholder="timezone" ng-model="info.timezone">
+            <hr />
+          </div>
+
+          <div class="col col-md-12 field actions">
+            <button ng-if="!isPending" type="submit" class="pull-right">Save</button>
+            <button ng-if="isPending" class="pull-right">Loading...</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ng-if="!isLoggedIn">
+  Please Login
+</div>

@@ -1,0 +1,98 @@
+.payment {
+  .payment-minimum {
+    margin: 0 auto;
+
+    td {
+      height: 55px;
+      width: 105px; 
+      line-height: 55px;
+      border: 1px solid @gray;
+
+      a {
+        display: block;
+        height: 100%;
+        width: 100%;
+
+        &:hover {
+          text-decoration: none;
+        } 
+      }
+    }     
+  }
+
+  .payment-data {
+    text-align: center;
+
+    .payment-data-input {
+      .clearfix;
+      border-bottom: 1px solid @gray;
+      margin: 0 15px;
+    }
+
+    input, label {
+      height: 60px;
+      line-height: 60px;
+      border: none; 
+    }
+
+    label {
+      text-align: left; 
+      font-weight: normal;
+      color: @gray;
+    }
+  }
+
+  input[type=submit] {
+    width: 190px;
+    height: 45px; 
+    background-color: @primary-color;
+    border-radius: 0px;
+    text-transform: uppercase;
+  }
+
+  fieldset {
+    margin: 40px 0; 
+  }
+
+  .payment-holder {
+    margin-bottom: 50px;
+
+    table {
+      margin: 15px auto; 
+      background-color: #E1F3F6; 
+      
+      .firts-line td {
+        padding-top: 15px; 
+        font-size: 18px;
+      }
+
+      .second-line td {
+        padding-bottom: 15px; 
+      }
+
+      td {
+        padding: 0 15px; 
+      }
+    }
+  }
+
+  .table-payment {
+    margin-bottom: 50px; 
+
+    tr {
+      border-bottom: 1px solid @gray; 
+      line-height: 50px;
+    }
+  }
+
+  .table-credit {
+    tr {
+      border-bottom: 1px solid @gray; 
+      line-height: 50px;
+    }  
+  }
+
+  .pimary-color {
+    color: @primary-color; 
+  }
+}

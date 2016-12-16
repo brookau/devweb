@@ -1,0 +1,5 @@
+<ul class="mentio-dropdown" style="display:block">
+  <li mentio-menu-item="item" ng-repeat="item in items track by $index">
+    <a class="text-primary" ng-bind-html="item.id | mentioHighlight:typedTerm:'menu-highlighted' | unsafe"></a>
+  </li>
+</ul>

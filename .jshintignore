@@ -1,0 +1,2 @@
+src/javascripts/app/libs/*.js
+test/**/**/*.js

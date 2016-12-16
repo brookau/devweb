@@ -1,0 +1,325 @@
+.modal-dialog {
+  position: absolute;
+  width: initial;
+  position: absolute;
+  left: 50%;
+}
+
+.modal-content {
+  position: relative;
+  left: -50%;
+  border-radius: 0px;
+}
+
+.mentio-dropdown {
+  position: relative;
+  top: 20px;
+  min-width: 255px;
+  padding: 0;
+  list-style: none;
+
+  background-color: @primary-color-dark;
+
+  li {
+    text-align: left;
+    padding: 0 15px;
+
+    a {
+      line-height: 40px;
+      color: white;
+      &:hover {
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    &:hover, &.active {
+      background-color: #182343;
+      color: white;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: -5px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid @primary-color-dark;
+  }
+}
+
+.sign-in-up-pop-up {
+  width: 380px;
+
+  .header-img {
+    height: 115px;
+    line-height: 115px;
+    text-align: center;
+  }
+
+  .sign-tab-wrapper {
+    .clearfix();
+    text-align: center;
+  }
+
+  .sign-tab-item {
+    display: block;
+    float: left;
+    height: 55px;
+    width: 190px;
+    text-transform: uppercase;
+    line-height: 55px;
+    cursor: pointer;
+    color: @primary-color-dark;
+
+    &:hover {
+      color: @primary-color;
+    }
+
+    &.active {
+      background-color: @primary-color;
+      color: white;
+    }
+  }
+
+  .form-login, .sign-up-form {
+    position: relative;
+    background-color: #E1F3F6;
+    margin: 0;
+    padding-bottom: 55px;
+  }
+
+  .form-field-wrapper {
+    padding: 20px;
+
+    hr {
+      margin: 0;
+      border-top: 1px solid #C7C7C7;
+    }
+
+    input[type=text], input[type=password], input[type=email] {
+      width: 100%;
+      border: none;
+      background-color: inherit;
+      outline: none;
+      padding: 18px;
+
+      .placeholder(@primary-color-dark);
+    }
+
+    .input-apppend {
+      position: relative;
+    }
+
+    .add-on {
+      position: absolute;
+      top: 0px;
+      right: 0;
+      line-height: 55px;
+      width: 30px;
+      text-align: center;
+    }
+
+    .captcha {
+      margin-top: 20px;
+    }
+
+    .error-message {
+      position: absolute;
+      background-color: red;
+      color: white;
+      top: 12px;
+      left: -50%;
+      padding: 5px 10px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: -15px;
+        top: 9px;
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-left: 10px solid red;
+      }
+    }
+  }
+
+  .skip-footer {
+    padding: 20px 0;
+    text-align: center;
+
+    a {
+      display: block;
+      color: black;
+      font-size: 20px;
+
+      &:hover {
+        color: @primary-color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .actions-wrapper {
+    .clearfix();
+
+    position: absolute;
+    bottom: 0px;
+
+    button {
+      display: block;
+      float: left;
+      height: 55px;
+      border: none;
+      color: white;
+      outline: none;
+
+      &:hover {
+        color: @primary-color;
+      }
+
+      &[disabled=disabled] {
+        color: @gray;
+      }
+    }
+
+    .forgot-btn, .cancel-btn {
+      width: 95px;
+      background-color: @primary-color;
+
+      &:hover {
+        color: @primary-color-dark;
+      }
+    }
+
+    .cancel-btn {
+      font-size: 20px;
+    }
+
+    .login-btn, .next-btn {
+      width: 285px;
+      text-align: left;
+      background-color: @primary-color-dark;
+      font-size: 20px;
+      padding-left: 20px;
+    }
+
+    .next-btn {
+      margin-left: 95px;
+    }
+  }
+}
+
+.message-popup {
+  width: 380px;
+
+  .close-dialog {
+    position: absolute;
+    right: 8px;
+    top: 0px;
+    font-size: 30px;
+    color: white;
+
+    &:hover {
+      text-decoration: none;
+      color: @primary-color;
+    }
+  }
+
+  form {
+    input, textarea {
+      width: 100%;
+      border: none;
+      outline: none;
+    }
+
+    textarea {
+      height: 150px;
+      padding: 0 15px;
+
+      .placeholder(@gray);
+    }
+
+    .report-reason {
+      color: @primary-color;
+    }
+
+    .message-info {
+      height: 60px;
+      line-height: 60px;
+
+      div:first-child {
+        padding-left: 30px;
+      }
+
+      div:last-child {
+        color: @gray;
+      }
+    }
+
+    .mention-input {
+      height: 60px;
+      line-height: 58px;
+      padding-left: 15px;
+
+      input {
+        width: 95%;
+        .placeholder(@gray);
+      }
+    }
+
+    hr {
+      margin: 0;
+    }
+
+    .form-actions button {
+      .clearfix();
+
+      width: 50%;
+      padding: 0;
+      margin: 0;
+      border: none;
+      float: left;
+      height: 50px;
+      background-color: #1E2B4D;
+      color: white;
+    }
+
+    .form-actions button[type=submit] {
+      border-left: 1px solid black;
+    }
+  }
+
+  .reason {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      width: 100%;
+      height: 60px;
+      text-align: center;
+      background-color: @primary-color-dark;
+    }
+
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
+      line-height: 60px;
+      color: white;
+      &:hover {
+        text-decoration: none;
+        color: white;
+        background-color: #182343;
+      }
+    }
+  }
+}

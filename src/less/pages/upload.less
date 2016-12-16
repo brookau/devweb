@@ -1,0 +1,178 @@
+mentio-menu {
+  z-index: 1000000000 !important;
+}
+
+.upload-popup {
+  width: 665px;
+  padding: 0 15px;
+
+  input, textarea, button {
+    outline: none;
+    border: none;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  input.has-error,textarea.has-error{
+    border: solid 1px red;
+  }
+
+  .upload-thumb {
+    width: 100%;
+  }
+
+  .title {
+    height: 60px;
+    line-height: 26px;
+    padding: 15px 0;
+  }
+
+  .drop-box {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0px;
+    padding: 40px;
+    background-color: #F0F9FA;
+    background-image: url("../../img/join-ico-2x.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+
+  .photo-dragdrop {
+    height: 300px;
+  }
+
+  .description {
+    .description-wrapper {
+      border: 1px solid @gray;
+      padding: 10px 0;
+    }
+
+    textarea {
+      height: 100px;
+      resize: none;
+      padding: 10px 0;
+      color: black;
+    }
+  }
+
+  .name-field {
+    line-height: 30px;
+    height: 30px;
+  }
+
+  .tags-field {
+    margin: 15px 0;
+
+    label, .placeholder {
+      height: 42px;
+      line-height: 42px;
+    }
+
+    .tags-wrapper {
+      border: 1px solid @gray;
+      padding: 5px 0;
+    }
+
+    .tags {
+      box-shadow: none;
+      border: none;
+    }
+
+    .separator::after {
+      top: 6px;
+    }
+  }
+
+  .separator::after {
+    top: 0px;
+  }
+
+  .placeholder {
+    color: @gray;
+    line-height: 30px;
+    height: 30px;
+  }
+
+  .actions, .photo-upload-image-preview {
+    padding: 15px 0;
+  }
+
+  .photo-upload-image-preview {
+    position: relative;
+  }
+
+  .photo-upload-button {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+
+    button {
+      color: white;
+      text-transform: uppercase;
+      background-color: @primary-color;
+      padding: 10px;
+    }
+  }
+
+  .modal-action {
+    width: 190px;
+    height: 50px;
+    margin: 0 10px;
+    color: white;
+    text-transform: uppercase;
+    background-color: @primary-color;
+
+    &[disabled] {
+      color: @gray;
+      background-color: #F0F9FA;
+    }
+  }
+
+  .thumb-editor-wrapper {
+    margin: 15px 0px;
+    border: 1px solid @gray;
+
+    button {
+      width: auto;
+    }
+  }
+
+  .thumb-editor {
+    border: none;
+    background-color: #F0F9FA;
+  }
+
+  .thumb-editor-empty {
+    background-image: url("../../img/join-ico-2x.png");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .audio-dragdrop {
+    height: 150px;
+    border: 1px solid @gray;
+    padding: 5px;
+  }
+
+  .discard-wraper {
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid @gray;
+
+    .file-name {
+      line-height: 30px;
+    }
+
+    button {
+      width: auto;
+      color: white;
+      text-transform: uppercase;
+      background-color: @primary-color;
+      padding: 5px 10px;
+    }
+  }
+}
+
+

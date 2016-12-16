@@ -1,0 +1,30 @@
+{
+    "bitwise": true,
+    "browser": true,
+    "curly": true,
+    "eqeqeq": true,
+    "immed": true,
+    "jquery": true,
+    "latedef": true,
+    "newcap": true,
+    "camelcase": false,
+    "noarg": true,
+    "nonew": true,
+    "plusplus": false,
+    "regexp": true,
+    "trailing": true,
+    "undef": true,
+    "globals": {
+        "define": true,
+        "require": true,
+        "describe": true,
+        "it": true,
+        "console": true,
+        "alert": true,
+        "module": true,
+        "beforeEach": true,
+        "inject": true,
+        "expect": true,
+        "requirejs": true
+    }
+}

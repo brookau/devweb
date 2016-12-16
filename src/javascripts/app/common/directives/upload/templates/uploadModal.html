@@ -1,0 +1,14 @@
+<div class="container upload-popup" ng-switch="postFormType">
+	<div ng-switch-when="photo">
+		<div ng-include="'upload.photo'"></div>
+	</div>
+	<div ng-switch-when="video">
+		<div ng-include="'upload.video'"></div>
+	</div>
+	<div ng-switch-when="text">
+		<div ng-include="'upload.text'"></div>
+	</div>
+	<div ng-switch-when="audio">
+		<div ng-include="'upload.audio'"></div>
+	</div>
+</div>

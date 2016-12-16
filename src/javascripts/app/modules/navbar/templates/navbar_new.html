@@ -1,0 +1,150 @@
+<div ng-controller="navbarController" class="container">
+  <div class="row site-header">
+    <a class="navbar-brand" href="/">
+      <span class="header-title">RABADABA</span>
+    </a>
+
+    <!-- IF USER NOT LOGGED -->
+    <div ng-if="!currentUser.isLoggedIn" class="right-header-part">
+      <div class="pull-right hamburger-icon">
+        <a href class="dropdown-toggle">
+          <i class="fa fa-bars fa-lg"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-hamburger">
+          <li>
+            <a href="/">Tags Diretory <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href="/about ">About <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href="/contact">Contact <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href="/terms">Terms <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href="/support">Support <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="custom-input navbar-input-search pull-right hidden-xs">
+        <i class="fa fa-search"></i>
+        <input search-field class="form-control " />
+      </div>
+
+      <a href sign-in-up="signin" class="sign-in-modal uppercase pull-right"  ng-if="!currentUser.isLoggedIn">
+        <i class="fa fa-lock fa-lg"></i> Login
+      </a>
+
+      <a href sign-in-up="signup" class="sign-up-modal uppercase pull-right separator" ng-if="!currentUser.isLoggedIn">
+        <i class="fa fa-pencil fa-lg"></i> Sign Up
+      </a>
+      <a href="/" class="pull-right home hidden-xs">
+        <img src="/img/home.png">
+      </a>
+    </div>
+
+
+
+
+    <!-- IF USER LOGGED -->
+    <div ng-if="currentUser.isLoggedIn" class="right-header-part">
+      <div class="pull-right hamburger-icon">
+        <a href class="dropdown-toggle">
+          <i class="fa fa-bars fa-lg"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-hamburger">
+          <li>
+            <a href="/profile">Profile Settings <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href="/dashboard">Feeds <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href="/dashboard/payments/settings">Payment Settings <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href="/dashboard/payments/history">Payment History <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href="/dashboard/history/posts">Account History <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href="/dashboard/favorites">Favorites <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href="/dashboard/followers">Followers <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href="/dashboard/following">Following <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href="/dashboard/tags">Tags You Follow <i class="fa fa-long-arrow-right fa-lg"></i></a>
+          </li>
+          <li>
+            <a href ng-click="signout($event)">Logout <i class="fa fa-lock fa-lg"></i></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="custom-input navbar-input-search pull-right hidden-xs">
+        <i class="fa fa-search"></i>
+        <input search-field class="form-control " />
+      </div>
+
+      <div class="pull-right header-join">
+        <a href class="dropdown-toggle" ng-if="currentUser.isLoggedIn">
+          <img src="/img/join-ico.png">
+          <span class="sr-only">(current)</span>
+        </a>
+        <upload-menu ng-if="currentUser.isLoggedIn"></upload-menu>
+      </div>
+
+
+
+      <div class="pull-right user-card-min separator" ng-if="currentUser.isLoggedIn">
+        <a href="/dashboard">
+        <div class="pull-right">
+          <img
+            default-src
+            height="34"
+            ng-src="{{currentUser.getInfo() | parseAvatar}}"
+            class="img-circle"
+            alt="" />
+        </div>
+
+        <div class="pull-right user-card-navbar">
+          <b class="capitalize user-name">{{currentUser.getInfo().username}}</b>
+          <span class='user-balance'>
+            <i class="fa fa-database"></i> ${{currentUser.getInfo().balance}}
+          </span>
+        </div>
+        </a>
+      </div>
+
+      <a href class="pull-right carrot separator" ng-if="currentUser.isLoggedIn">
+        <img src="/img/carrot.png">
+        <span class="notification-count">3</span>
+      </a>
+
+      <a href="/" class="pull-right home separator">
+        <img src="/img/home.png">
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+<!--   <div class="row site-header-input hidden-sm hidden-md hidden-lg">
+    <div class="col-sm-12 full-custom-search">
+      <div class="custom-input full-custom-input">
+        <i class="fa fa-search"></i>
+        <input search-field class="form-control " />
+      </div>
+    </div>
+  </div> -->
+</div>

@@ -1,0 +1,86 @@
+<div ng-if="state === 'success'">
+  <div class="padding-25 text-center">
+    The post is queued. Please check its status <a href="/dashboard/pending" ng-click="closeDialog()">here</a>.
+  </div>
+
+  <div class="col col-md-12 text-center actions">
+    <button class="modal-action" ng-click="closeDialog()">
+      close
+    </button>
+  </div>
+</div>
+
+<form class="form-video-post" novalidate="" name="videoPostForm" ng-if="state !== 'success'">
+    <div class="title clearfix row">
+      <label for="video-title" class="col col-md-2 name-field"><i class="fa fa-pencil"></i> Title</label>
+      <div class="col col-md-7 separator">
+      <input ng-model="data.title" type="text" class="form-control" id="video-title"
+           ng-class="{'has-error':videoPostForm.title.$error.required && videoPostForm.title.$dirty}" name="title"
+           ng-maxlength="100" autocomplete="off"
+           required/>
+      </div>
+      <span class="col col-md-3 placeholder">100 character max</span>
+    </div>
+
+    <div ng-if="data.videofiles[0]" class="clearfix discard-wraper">
+      <span class="file-name">{{data.videofiles[0].name}}</span>
+      <button class="pull-right" ng-click="discard()">discard</button>
+    </div>
+
+    <div ng-if="!data.videofiles" ng-file-drop ng-file-select
+         ng-model="data.videofiles" class="drop-box audio-dragdrop"
+         drag-over-class="dragover" allow-dir="true"
+         ng-class="{'has-error':videoPostForm.file.$error.required && videoPostForm.file.$dirty}"
+         accept="video/*">Drop videofile here or click to upload
+    </div>
+
+    <div class="description">
+      <div class="description-wrapper clearfix">
+        <label for="text-description" class="col col-md-6 separator name-field"><i class="fa fa-pencil"></i> Description</label>
+        <span class="col col-md-6 text-right placeholder">Description goes here 1000 characters max</span>
+        <div class="col col-md-12">
+          <mention-textarea ng-model="data.description" type="text" class="form-control"
+              id="text-description"
+              ng-class="{'has-error':videoPostForm.description.$error.required && videoPostForm.description.$dirty}"
+              ng-maxlength="1000" required></mention-textarea>
+        </div>
+      </div>
+
+    <div class="tags-field">
+      <div class="tags-wrapper clearfix">
+        <label class="col col-md-2 name-field"><i class="fa fa-pencil"></i> Tags</label>
+        <div class="col col-md-7 separator">
+          <tags-field tags="data.tags"></tags-field>
+        </div>
+        <span class="col col-md-3 placeholder">Seperate by space</span>
+      </div>
+    </div>
+
+
+    <div ng-if="state === 'error'">
+      <div class="padding-25 text-center">
+        {{message}}
+      </div>
+
+      <div class="col col-md-12 text-center actions">
+        <button class="modal-action" ng-click="closeDialog()">
+          close
+        </button>
+      </div>
+    </div>
+
+    <div ng-if="progress">
+        {{progress}}
+    </div>
+
+    <div class="col col-md-12 text-center actions">
+      <button class="modal-action" ng-disabled="videoPostForm.$invalid || onAjax"
+              ng-click="upload()">
+          Publish
+      </button>
+
+      <button class="modal-action" ng-click="closeDialog()">
+          close
+      </button>
+    </div>
+</form>

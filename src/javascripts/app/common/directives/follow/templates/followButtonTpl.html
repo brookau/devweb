@@ -1,0 +1,13 @@
+<button ng-disabled="isLoading" type="button">
+  <a href ng-click="action()" ng-if="user.isLoggedIn">
+    {{caption}}
+    <i ng-if="!isFollowing" class="fa fa-user-plus"></i>
+    <i ng-if="isFollowing" class="fa fa-user-times"></i>
+  </a>
+
+  <a href sign-in-up="signin" ng-if="!user.isLoggedIn">
+    {{caption}}
+    <i ng-if="!isFollowing" class="fa fa-user-plus"></i>
+    <i ng-if="isFollowing" class="fa fa-user-times"></i>
+  </a>
+</button>

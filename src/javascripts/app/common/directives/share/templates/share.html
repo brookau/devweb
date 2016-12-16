@@ -1,0 +1,34 @@
+<div class="message-popup">
+  <form ng-submit="send()" name="shareTo" novalidate>
+    <div class="report-reason text-center">
+      <h3>Direct Share</h3>
+    </div>
+
+    <hr />
+    
+    <div class="mention-input">
+      <mention-input ng-model="data.mention" name="mention" type="text"
+        placeholder="enter @usernames here"></mention-input>
+    </div>
+
+    <hr />
+
+    <div class="message-info row">
+      <div class="col-md-7 separator">
+        <i class="fa fa-pencil"></i>
+        Comment
+      </div>
+      <div class="col-md-5">
+        200 character max
+      </div>
+    </div>
+
+    <textarea name="message" ng-model="data.message" ng-maxlength="200"
+      placeholder="write here" required></textarea>
+
+    <div class="form-actions">
+      <button type="button" ng-click="closeDialog()">Cancel</button>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>

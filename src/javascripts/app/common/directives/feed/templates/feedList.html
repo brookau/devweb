@@ -1,0 +1,11 @@
+<div class="feed-list">
+  <div class="horizontal-line"></div>
+  <div class="horizontal-line-gallery"></div>
+
+  <div class="row" infinite-scroll="loadFeeds('main')" infinite-scroll-distance="2"
+       infinite-scroll-disabled='onLoading' class="feed-list">
+      <div class="feed" feed="f" ng-repeat="f in feeds"></div>
+  </div>
+  <div ng-hide="feeds.length">No feeds</div>
+</div>
+

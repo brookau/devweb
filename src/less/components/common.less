@@ -1,0 +1,193 @@
+.margin-side-20 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.padding-25 {
+  padding: 25px;
+}
+
+// old styles
+.modal {
+  .container {max-width: 100%;}
+}
+a[ng-click]{
+    cursor: pointer;
+}
+
+.ranking {
+  position: absolute;
+  bottom: -5.5rem;
+  width: 84%;
+  height: 10rem;
+  background: rgba(0, 0, 0, 0.85);
+  padding-left: .5rem;
+  -webkit-transition: all 0.5s cubic-bezier(0, 1, 0.5, 1);
+  transition: all 0.5s cubic-bezier(0, 1, 0.5, 1);
+}
+
+.thumbnail-body-item {
+  border: none;
+  background: none;
+  padding: 0;
+  padding-top: 8%;
+  margin: 0;
+  border-radius: 0;
+  position: relative;
+}
+.thumbnail-body-item .bg-info {
+  position: absolute;
+left: 0;
+bottom: 0;
+height: 25%;
+width: 85%;
+margin-left: 7%;
+background: #000;
+opacity: 0.5;
+}
+.thumbnail img.scale2 {
+  /* corrects inline gap in enclosing div */
+  display: block;
+  max-width: 100%;
+  /* just in case, to force correct aspect ratio */
+  height: auto !important;
+  width: auto\9; /* ie8+9 */
+  /* lt ie8 */
+  -ms-interpolation-mode: bicubic;
+}
+.coming-box .thumbnail-body-item .info {
+bottom: 12px;
+height: 36px;
+}
+
+.comingtime {
+position: absolute;
+bottom: 0px;
+color: #ADADAD;
+text-align: center;
+padding-left: 12px;
+}
+
+.thumbnail-body-item .bg-buzzscore {
+position: absolute;
+right: 11%;
+bottom: 6%;
+height: 14%;
+width: 15%;
+background: #ff3019; /* Old browsers */
+background: -moz-linear-gradient(top, #ff3019 0%, #cf0404 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3019), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ff3019 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ff3019 0%,#cf0404 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ff3019 0%,#cf0404 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ff3019 0%,#cf0404 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=0 ); /* IE6-9 */
+}
+.thumbnail-body-item .info {
+position: absolute;
+left: 8%;
+bottom: 2%;
+height: 34px;
+width: 75%;
+overflow: hidden;
+font-size: 1.2em;
+color: #fff;
+}
+.thumbnail-body-item .buzzscore {
+position: absolute;
+left: 78%;
+bottom: 4%;
+height: 13%;
+width: 23%;
+overflow: hidden;
+color: #fff;
+font-weight: bold;
+}
+
+.crop-height {
+  /* max-width: 1200px; /* img src width (if known) */
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.rank-star2 {
+  position: absolute;
+  font-size: 4em;
+  top: 0;
+  left: 10%;
+  top: 10%;
+  color: gold;
+}
+.rank-pos {
+
+background: #a90329; /* Old browsers */
+background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* IE10+ */
+background: linear-gradient(to bottom, #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+
+color: #fff;
+padding: 4%;
+font-weight: bold;
+
+
+}
+
+.form-login {
+  margin-bottom: 13px;
+  .checkbox {
+    margin-left: 20px;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.dropdown-menu {
+  min-width: 255px;
+  left: inherit;
+  right: 0;
+  border-radius: 0;
+  top: 90%;
+
+  background-color: @primary-color-dark;
+
+  li {
+    text-align: left;
+
+    a {
+      line-height: 40px;
+      color: white;
+    }
+
+    a:hover {
+      background-color: #182343;
+      color: white;
+    }
+  }
+
+  i {
+    line-height: 40px;
+    float: right;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 62px;
+    top: -5px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid @primary-color-dark;
+  }
+}

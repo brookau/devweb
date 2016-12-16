@@ -1,0 +1,59 @@
+<div class="rabbit-hole" ng-init="update()">
+  <ul>
+    <li ng-repeat="p in rabbitHoles | pager:offset:limit track by $index">
+      <div class="row">
+        
+        <span class="col-md-2 text-right">
+          Vw:
+          <span ng-if="p.views">{{p.views}}</span>
+          <span ng-if="!p.views">0</span>
+        </span>
+        <span class="col-md-2 text-right">
+          C:
+          <span ng-if="p.comments">{{p.comments}}</span>
+          <span ng-if="!p.comments">0</span>
+        </span>
+        <span class="col-md-2 text-right">
+          F:
+          <span ng-if="p.favorites">{{p.favorites}}</span>
+          <span ng-if="!p.favorites">0</span>
+        </span>
+        <span class="col-md-2 text-right">
+          S:
+          <span ng-if="p.sharing">{{p.sharing}}</span>
+          <span ng-if="!p.sharing">0</span>
+        </span>
+        <span class="col-md-2 text-right">
+          V:
+          <span ng-if="p.votes">{{p.votes}}</span>
+          <span ng-if="!p.votes">0</span>
+        </span>
+      </div>
+
+      <a href="/post/{{p.id}}" class="img-frame">
+        <img ng-src="{{p.thumb}}">
+      </a>
+
+      <div class="wrap">
+        <a href="/post/{{p.id}}">
+          {{ p.title }}
+        </a>
+      </div>
+    </li>
+  </ul>
+
+  <div class="row recomendations-body-pager text-center" ng-if="rabbitHoles.length > 0">
+    <div class="col-md-6 col-xs-6 border-top">
+      <a ng-if="(limit + offset) < total" ng-click="next()">
+        <i class="fa fa-angle-down fa-lg"></i>
+      </a>
+      <i ng-if="(limit + offset) > total" class="fa fa-angle-down fa-lg"></i>
+    </div>
+    <div class="col-md-6 col-xs-6 border-top border-left">
+      <a ng-if="offset !== 0" ng-click="prev()">
+        <i class="fa fa-angle-up fa-lg"></i>
+      </a>
+      <i ng-if="offset === 0" class="fa fa-angle-up fa-lg"></i>
+    </div>
+  </div>
+</div>

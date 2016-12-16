@@ -1,0 +1,120 @@
+.dashboard {
+  .dashboard-container {
+    margin: 80px 0;
+  }
+
+  .filter-panel {
+    position: fixed; 
+    z-index: 100;
+  }
+
+  .user-card {
+    background-color: #E1F3F6;
+    max-width: 200px;
+    padding: 16px;
+  }
+
+  .btn-follow {
+    width: 170px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    outline: none;
+    padding: 0;
+    
+    a {
+      color: inherit;
+      line-height: 50px;
+      height: 100%;
+      width: 100%;
+      display: block;
+      text-decoration: none;
+      background-color: inherit;
+    }
+  }
+
+  .padding-25 {
+    padding-top: 25px;
+  }
+
+  .feed-title {
+    height: 30px; 
+  }
+
+  .feed-filter, .second-feed-filter {
+    a {
+      color: black;
+      
+      &:hover {
+        color: @primary-color;
+        text-decoration: none; 
+      } 
+    }
+
+    li.active {
+      a {
+        color: @primary-color; 
+        text-decoration: none;
+        cursor: default;
+      }  
+    }
+  }
+
+  .second-feed-filter {
+    height: 30px; 
+  }
+
+  .user-card-list {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    margin: 0;
+
+    li {
+      max-width: 170px;
+      height: 40px;
+      background-color: white;
+      padding: 5px 10px;
+      margin: 5px 0;
+      line-height: 33px;
+      cursor: pointer;
+
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+      }
+    }
+  }
+
+  .tags-item {
+    line-height: 50px; 
+
+    .tags {
+      margin: 0 7px;
+      margin-bottom: 5px;
+      padding: 8px 20px;
+      height: 30px;
+      line-height: 30px;
+      background-color: #e1f3f6;
+      border-radius: 30px;
+      color: #333333; 
+
+      &:hover {
+        text-decoration: none; 
+        color: @primary-color;
+      }
+    }
+  }
+
+  .users-item {
+    line-height: 45px; 
+    margin: 10px 0;
+  }
+
+  .full-dashbord-post {
+    margin: 30px 0; 
+  }
+}

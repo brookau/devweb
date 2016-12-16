@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RABADABA</title>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your,Keywords">
+    <meta name="author" content="ResponsiveWebInc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/app.css" media="all" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="#">
+  </head>
+
+  <body class="no-box">
+
+    <div ng-controller='MainController'>
+      <div class="grid-layer container"></div>
+      <!-- Header Starts -->
+      <div class="navbar" ng-include="'navbar.new'"></div>
+
+      <!-- Header Ends -->
+
+      <!-- Main Starts -->
+      <div class="main-container" ng-view></div>
+      <!-- Main Ends -->
+
+      <!--footer start-->
+      <footer class="site-footer" ng-include="'footer'"></footer>
+    </div>
+
+    <script src="/js/html5shiv.js"></script>
+    <script src="/bower_components/requirejs/require.js"></script>
+    <script>
+      var ERNR_GLOBAL = {};
+        require.config({
+            waitSeconds: 0,
+             paths: {
+                'main': '/javascripts/main'
+            },
+            shim: {
+                'main': {
+                  exports: 'ernr'
+                }
+            }
+        });
+        require( ["main"],
+            function(app) {
+            }
+          );
+    </script>
+  </body>
+</html>

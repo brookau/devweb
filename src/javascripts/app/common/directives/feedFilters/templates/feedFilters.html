@@ -1,0 +1,57 @@
+<div class="filter-panel">
+    <div class="container">
+      <div class="filter-text">FILTER:</div>
+      <div class="ernr-btn-group pull-left">
+        <div class="vertical-line-20-15"></div>
+        <button
+            type="button"
+            class="btn ernr-btn-light"
+            ng-class="{ active: filter.type === 'video' }"
+            ng-click="changeType('video')">
+            <i class="fa fa-video-camera"></i>
+        </button>
+        <div class="vertical-line-20-15"></div>
+        <button
+            type="button"
+            class="btn ernr-btn-light"
+            ng-class="{ active: filter.type === 'image' }"
+            ng-click="changeType('image')">
+            <i class="fa fa-camera"></i>
+        </button>
+        <div class="vertical-line-20-15"></div>
+        <button
+            type="button"
+            class="btn ernr-btn-light"
+            ng-class="{ active: filter.type === 'text' }"
+            ng-click="changeType('text')">
+            <i class="fa fa-pencil"></i>
+        </button>
+        <div class="vertical-line-20-15"></div>
+        <button
+            type="button"
+            class="btn ernr-btn-light"
+            ng-class="{ active: filter.type === 'audio' }"
+            ng-click="changeType('audio')">
+            <i class="fa fa-headphones"></i>
+        </button>
+      </div>
+
+      <div class="ernr-btn-group pull-right">
+        <button
+            type="button"
+            class="btn ernr-btn-light"
+            ng-class="{ active: filter.datestamp === '' }"
+            ng-click="changeDate('recent')">Most Recent</button>
+        <button
+            type="button"
+            class="btn ernr-btn-light"
+            ng-class="{ active: filter.datestamp === 'activity' }"
+            ng-click="changeDate('activity')">By Activity</button>
+        <button
+            type="button"
+            class="btn ernr-btn-light"
+            ng-class="{ active: filter.datestamp === 'popularity' }"
+            ng-click="changeDate('popularity')">By Popularity</button>
+      </div>
+    </div>
+</div>

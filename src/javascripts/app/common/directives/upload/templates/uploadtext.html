@@ -1,0 +1,54 @@
+<form class="form-text-post" name="textPostForm" novalidate="">
+    <div class="title clearfix row">
+      <label for="text-title" class="col col-md-2 name-field"><i class="fa fa-pencil"></i> Title</label>
+      <div class="col col-md-7 separator">
+      <input ng-model="data.title" type="text" class="form-control" id="text-title"
+           ng-class="{'has-error':textPostForm.title.$error.required && textPostForm.title.$dirty}" name="title"
+           ng-maxlength="100" autocomplete="off"
+           required/>
+      </div>
+      <span class="col col-md-3 placeholder">100 character max</span>
+    </div>
+
+    <div class="thumb-editor-wrapper">
+      <thumb-editor ng-model="data.thumb" as-blob="true"></thumb-editor>
+    </div>
+
+    <div class="description">
+      <div class="description-wrapper clearfix">
+        <label for="text-description" class="col col-md-6 separator name-field"><i class="fa fa-pencil"></i> Description</label>
+        <span class="col col-md-6 text-right placeholder">Description goes here 1000 characters max</span>
+        <div class="col col-md-12">
+          <mention-textarea ng-model="data.description" type="text" class="form-control"
+              id="text-description"
+              ng-class="{'has-error':textPostForm.description.$error.required && textPostForm.description.$dirty}"
+              ng-maxlength="1000" required></mention-textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="tags-field">
+      <div class="tags-wrapper clearfix">
+        <label class="col col-md-2 name-field"><i class="fa fa-pencil"></i> Tags</label>
+        <div class="col col-md-7 separator">
+          <tags-field tags="data.tags"></tags-field>
+        </div>
+        <span class="col col-md-3 placeholder">Seperate by space</span>
+      </div>
+    </div>
+
+    <div ng-if="state === 'error'">
+        {{message}}
+    </div>
+
+    <div class="col col-md-12 text-center actions">
+      <button class="modal-action" ng-disabled="textPostForm.$invalid || onAjax"
+              ng-click="upload()">
+          Publish
+      </button>
+
+      <button class="modal-action" ng-click="closeDialog()">
+          close
+      </button>
+    </div>
+</form>

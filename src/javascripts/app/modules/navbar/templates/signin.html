@@ -1,0 +1,44 @@
+<div class="container">
+  <div ng-switch="state">
+    <div ng-switch-when="signin">
+      <form class="form-login" ng-submit="submitDialog($event)" name="loginForm">
+        <h2 class="form-login-heading">sign in now</h2>
+        <div class="login-wrap">
+          <input ng-model="data.login" type="text" class="form-control" placeholder="username" autofocus>
+          <br>
+          <input ng-model="data.password" type="password" class="form-control" placeholder="password">
+          <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+          <span class="pull-right">
+            <a href="#" ng-click="showForgotForm($event)"> Forgot Password?</a>
+          </span>
+          </label>
+          <button ng-hide="isPending" ng-disabled="!isValid" class="btn btn-theme btn-block" type="submit">
+            <i class="fa fa-lock"></i> SIGN IN
+          </button>
+          <button ng-show="isPending" class="btn btn-theme btn-block">
+            <i class="fa fa-lock"></i> Loading...
+          </button>
+          <button class="btn btn-theme btn-block" type="button" ng-click="closeDialog()">CLOSE</button>
+        </div>
+      </form>
+    </div>
+    <div ng-switch-when="forgot">
+      <form class="form-login" name="forgotForm">
+        <h2 class="form-login-heading">Forgot Password</h2>
+        <div class="login-wrap">
+          <input type="text" class="form-control" placeholder="username" autofocus>
+          <br>
+          <button class="btn btn-theme btn-block">
+            <i class="fa fa-lock"></i> send
+          </button>
+          <button class="btn btn-theme btn-block" type="button" ng-click="closeDialog()">CLOSE</button>
+        </div>
+      </form>
+    </div>
+    <div ng-switch-when="error">
+      <h3>{{message}}</h3>
+      <button class="btn btn-theme btn-block" ng-click="showSignInForm($event)">Try again</button>
+    </div>
+  </div>
+</div>

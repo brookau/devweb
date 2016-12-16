@@ -1,0 +1,57 @@
+.user-card {
+  background-color: #E1F3F6;
+  max-width: 200px;
+  padding: 16px;
+
+  .user-card-list {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    margin: 0;
+
+    li {
+      max-width: 170px;
+      height: 40px;
+      background-color: white;
+      padding: 5px 10px;
+      margin: 5px 0;
+      line-height: 33px;
+      cursor: pointer;
+
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+      }
+    }
+  }
+
+  .user-menu {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+    background-color: @primary-color;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 26px;
+    cursor: pointer;
+
+    .dropdown-menu {
+      min-width: 170px;
+      top: 30px;
+      right: -100px;
+
+      &::before {
+        right: 107px;
+      }
+    }  
+  }
+}
+
+.padding-25 {
+  padding-top: 25px;
+}
+

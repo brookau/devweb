@@ -1,0 +1,21 @@
+<div class="public-profile row">
+  <div class="container">
+    <div class="col col-md-3">
+      <user-card user-id="userId"></user-card>
+    </div>
+
+    <div class="col col-md-9">
+      <div class="ernr-status-bar">
+        <div>
+          <h4>{{userId}}'s {{state}}</h4>
+        </div>
+        <hr />
+      </div>
+      <div ng-switch on="state">
+        <div ng-switch-when="followers" followers user-id="userId"></div>
+        <div ng-switch-when="following" following user-id="userId"></div>
+        <div ng-switch-when="posts" feeds-list feed-topic="'user'" feed-type="userId"></div>
+      </div>
+    </div>
+  </div>
+</div>

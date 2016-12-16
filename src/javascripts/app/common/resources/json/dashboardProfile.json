@@ -1,0 +1,94 @@
+{
+    "balance": 157.89,
+    "followers": 18383,
+    "following": 2345,
+    "posts": 675,
+    "postswaiting": 60,
+    "mainfeed": [
+        {
+            "author": "Billy21",
+            "authorimg": "//placeimg.com/100/100/people",
+            "title": "Content title",
+            "postimg": "//placeimg.com/600/200/tech/grayscale",
+            "votes": "1210",
+            "balance": "23.44",
+            "id": "1"
+        },
+        {
+            "author": "Billy21",
+            "authorimg": "//placeimg.com/100/100/people",
+            "title": "Content title",
+            "postimg": "//placeimg.com/600/200/tech/grayscale",
+            "votes": "1210",
+            "balance": "23.44",
+            "id": "2"
+        },
+        {
+            "author": "Billy21",
+            "authorimg": "//placeimg.com/100/100/people",
+            "title": "Content title",
+            "postimg": "//placeimg.com/600/200/tech/grayscale",
+            "votes": "1210",
+            "balance": "23.44",
+            "id": "3"
+        }
+    ],
+    "publicfeed": [
+        {
+            "author": "Billy21",
+            "authorimg": "//placeimg.com/100/100/people",
+            "title": "Content title",
+            "postimg": "//placeimg.com/600/200/tech/grayscale",
+            "votes": "1210",
+            "balance": "23.44",
+            "id": "4"
+        },
+        {
+            "author": "Billy21",
+            "authorimg": "//placeimg.com/100/100/people",
+            "title": "Content title",
+            "postimg": "//placeimg.com/600/200/tech/grayscale",
+            "votes": "1210",
+            "balance": "23.44",
+            "id": "5"
+        },
+        {
+            "author": "Billy21",
+            "authorimg": "//placeimg.com/100/100/people",
+            "title": "Content title",
+            "postimg": "//placeimg.com/600/200/tech/grayscale",
+            "votes": "1210",
+            "balance": "23.44",
+            "id": "6"
+        }
+    ],
+    "mentionsfeed": [
+        {
+            "author": "Billy21",
+            "authorimg": "//placeimg.com/100/100/people",
+            "title": "Content title",
+            "postimg": "//placeimg.com/600/200/tech/grayscale",
+            "votes": "1210",
+            "balance": "23.44",
+            "id": "7"
+        },
+        {
+            "author": "Billy21",
+            "authorimg": "//placeimg.com/100/100/people",
+            "title": "Content title",
+            "postimg": "//placeimg.com/600/200/tech/grayscale",
+            "votes": "1210",
+            "balance": "23.44",
+            "id": "8"
+        },
+        {
+            "author": "Billy21",
+            "authorimg": "//placeimg.com/100/100/people",
+            "title": "Content title",
+            "postimg": "//placeimg.com/600/200/tech/grayscale",
+            "votes": "1210",
+            "balance": "23.44",
+            "id": "9"
+        }
+    ]
+}

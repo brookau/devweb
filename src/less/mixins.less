@@ -1,0 +1,70 @@
+.vertical-line(@height:30px, @margin-top:10px){
+  height: @height;
+  margin-top: @margin-top;
+  width: 1px;
+  float: left;
+  background-color: @gray;
+}
+
+
+.horizontal-line(@margin-left: 0px, @margin-right: 0px) {
+  height: 1px;
+  margin-left: @margin-left;
+  margin-right: @margin-right;
+  background-color: @gray;
+}
+
+
+// .placeholder(@rules) {
+//     &::-webkit-input-placeholder {
+//         @rules();
+//     }
+//     &:-moz-placeholder {
+//         @rules();
+//     }
+//     &::-moz-placeholder {
+//         @rules();
+//     }
+//     &:-ms-input-placeholder {
+//         @rules();
+//     }
+// }
+
+.placeholder(@color) {
+    ::-webkit-input-placeholder {
+      color: @color;
+      font-weight: 100;
+    }
+    :-moz-placeholder {
+      color: @color;
+      font-weight: 100;
+    }
+    ::-moz-placeholder {
+      color: @color;
+      font-weight: 100;
+    }
+}
+
+.transition (@name, @duration: 300ms, @ease: ease) {
+  -webkit-transition: @name @duration @ease;
+  -moz-transition:    @name @duration @ease;
+  -ms-transition:     @name @duration @ease;
+}
+.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+  -webkit-animation: @name @duration @delay @ease;
+  -moz-animation:    @name @duration @delay @ease;
+  -ms-animation:     @name @duration @delay @ease;
+}
+
+.separator {
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 15px;
+    height: 30px;
+    width: 1px;
+    background-color: #c7c7c7;
+  }
+}
+

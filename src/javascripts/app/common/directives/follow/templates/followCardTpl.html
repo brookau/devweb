@@ -1,0 +1,13 @@
+<div class="follow-card row">
+  <div class="col col-md-1 col-sm-2">
+    <a href="/users/{{user.id}}">
+      <img height="45" width="45" ng-src="{{user | parseAvatar}}" default-src class="img-circle" alt="" />
+    </a>
+  </div>
+  <div class="col col-md-6 col-sm-6">
+    <a href="/users/{{user.id}}">{{user | parseName}}</a>
+  </div>
+  <div class="pull-right text-right">
+    <follow-button class="btn-follow" user-id="user.id"></follow-button>
+  </div>
+</div>

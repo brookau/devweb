@@ -1,0 +1,149 @@
+<div class="row full-dashbord-post">
+  <div class="post gary-border">
+    <header class="heading row">
+      <div class="col-md-9 col-sm-9 col-xs-8" ng-class="{ separator: !isMe }">
+        <a href="/users/{{post.user_id}}" class="img-box">
+          <img height="50" ng-src="{{post.user_avatar}}" class="img-circle" alt="">
+        </a>
+
+        <a href="/users/{{post.user_id}}"><b>{{post.user_name}}</b></a>
+      </div>
+
+      <div class="col-md-3 col-sm-3 col-xs-4">
+        <follow-button class="follow-button" ng-if="!isMe" user-id="post.user_id"></follow-button>
+      </div>
+    </header>
+    <hr />
+    <section class="post-body">
+      <div class="post-title">
+        <span class="pull-left">
+          {{post.title | limitTo:100}}
+        </span>
+
+        <div class="pull-right post-menu">
+          <span class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-ellipsis-h fa-lg"></i>
+          </span>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href>Reshare</a>
+            </li>
+            <li>
+              <a href>Share on Twitter</a>
+            </li>
+            <li>
+              <a href>Share on Facebook</a>
+            </li>
+            <li>
+              <a href>Share on Instragram</a>
+            </li>
+            <li>
+              <a href>Copy link</a>
+            </li>
+            <li>
+              <a href report target="posts" target-id="post.id" show-reason="true">Flag Content</a>
+            </li>
+            <li ng-if="isMe">
+              <a href>Delete post</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div ng-switch="post.type" class="post-content">
+          <div ng-switch-when="image" class="img-holder">
+              <img ng-src="{{post.file_url}}">
+          </div>
+          <div ng-switch-when="video" class="img-holder">
+              <div ng-if="isMobile.any" class="jw-player-wrapper">
+                  <jw-player jwplayer-id="post.id" src="post.file_url_360p" type="post.type"></jw-player>
+              </div>
+              <div ng-if="!isMobile.any" class="jw-player-wrapper">
+                  <jw-player jwplayer-id="post.id" src="post.file_url_480p" type="post.type"></jw-player>
+              </div>
+          </div>
+          <div ng-switch-when="audio" class="img-holder">
+            <div class="jw-player-wrapper ">
+              <jw-player jwplayer-id="post.id" src="post.file_url" type="post.type"></jw-player>
+            </div>
+          </div>
+      </div>
+      <div class="description"
+           ng-if="post"
+           ng-bind-html="post.description | limitTo:255 | tagToLink | nameToLink | unsafe"></div>
+    </section>
+
+    <section class="vote-action row text-center">
+      <div class="col-md-6 col-xs-6 no-padding">
+        <div class="votedown">
+          <button votedown model="post" type="button">
+            <i class="fa fa-arrow-circle-o-down"></i>
+            down vote
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xs-6 no-padding">
+        <div class="voteup">
+          <button voteup model="post" type="button">
+            <i class="fa fa-arrow-circle-o-up"></i>
+            up vote
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="post-action row text-center">
+      <div class="col-md-3 col-xs-3 separator">
+        <span share model="post" ng-if="post"></span>
+      </div>
+      <div class="col-md-3 col-xs-3 separator">
+        <span refresh model="post" ng-if="post"></span>
+      </div>
+      <div class="col-md-3 col-xs-3 separator">
+        <span ng-if="post.id" like model="post"></span>
+      </div>
+      <div class="col-md-3 col-xs-3"><i class="fa fa-expand"></i></div>
+    </section>
+
+    <section class="post-statistic row text-center">
+      <div class="col-md-4 col-xs-4 no-padding">
+        <div class="votesbalance">
+          <i class="fa fa-plus"></i> {{post.votesbalance}}
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-4 no-padding">
+        <div class="votessum">
+          <i class="fa fa-exchange"></i> {{post.votessum}}
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-4 no-padding">
+        <div class="balance">
+          <i class="fa fa-database"></i> {{post.balance}}
+        </div>
+      </div>
+    </section>
+
+    <section class="share-statistic row text-center">
+      <div class="col-md-3 col-sm-3 col-xs-6 separator"><b>{{post.reshare}}</b> Reshares</div>
+      <div class="col-md-3 col-sm-3 col-xs-6 separator"><b>{{post.favorites}}</b> Favorites</div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <ul class="horizontal-list">
+          <li ng-repeat="user in post.reshareUsers">
+            <img height="34" ng-src="{{user.avatar}}" class="img-circle" alt="" />
+          </li>
+          <li ng-if="post.reshareUsers.length === 0"> — </li>
+        </ul>
+      </div>
+    </section>
+    <hr />
+    <footer class="tags-wrapper">
+      <dl class="tags-list">
+          <dd>
+              <ul>
+                <li ng-repeat="tag in post.tags"><a href="/tags/{{tag}}">#{{tag}}</a></li>
+              </ul>
+          </dd>
+      </dl>
+    </footer>
+  </div>
+</div>

@@ -1,0 +1,374 @@
+.post-profile {
+  margin: 80px 0;
+
+  hr {
+    border-top: 1px solid @gray;
+    margin: 0;
+  }
+
+  .gary-border {
+    border: 1px solid @gray;
+  }
+
+  .post {
+    margin-bottom: 20px;
+  }
+
+  .heading {
+    height: 65px;
+    line-height: 65px;
+
+    .img-box {
+      padding: 0 15px;
+      @media(max-width: @screen-xs-max){
+        padding: 0 5px;
+      }
+    }
+
+    a {
+      color: black;
+      &:hover {
+        color: @primary-color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .post-title {
+    padding: 15px;
+    height: 50px;
+    word-wrap: break-word;
+  }
+
+  .img-holder img {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .description {
+    padding: 15px;
+    word-wrap: break-word;
+  }
+
+  .vote-action {
+    height: 70px;
+    line-height: 70px;
+
+    .voteup, .votedown {
+      background-color: @primary-color-light;
+      button {
+        // width: 250px;
+        width: 90%;
+        height: 50px;
+        border-radius: 100px;
+        border: none;
+        text-transform: uppercase;
+        font-size: 16px;
+
+        @media(max-width: @screen-xs-max){
+          height: 40px;
+          font-size: 14px;
+        }
+
+      }
+    }
+
+    .voteup {
+      margin-right: 15px;
+      button {
+        background-color: @primary-color;
+      }
+    }
+
+    .votedown {
+      margin-left: 15px;
+      button {
+        background-color: #F24B68;
+      }
+    }
+
+    button {
+      line-height: normal;
+    }
+  }
+
+  .post-action {
+    height: 60px;
+    line-height: 60px;
+  }
+
+  .post-statistic {
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+
+    .fa-exchange {
+      transform: rotate(90deg);
+    }
+
+    .votesbalance, .votessum {
+      &::after {
+        content: "";
+        position: absolute;
+        right: -45px;
+        top: 0px;
+        width: 0;
+        height: 0;
+        border: 25px solid transparent;
+        z-index: 10;
+      }
+    }
+
+    .balance {
+      margin-right: 15px;
+      background-color: @primary-color;
+    }
+
+    .votessum {
+      padding: 0 15px;
+      background-color: #82CFDF;
+      &::after {
+        border-left: 20px solid #82CFDF;
+      }
+    }
+
+    .votesbalance {
+      margin-left: 15px;
+      background-color: #9EDAE8;
+      &::after {
+        border-left: 20px solid #9EDAE8;
+      }
+    }
+  }
+
+  .share-statistic {
+    height: 60px;
+    line-height: 60px;
+  }
+
+  .tags-wrapper {
+    // height: 70px;
+    padding: 15px 0;
+  }
+
+  .tags-list {
+    margin: 0;
+    overflow: hidden;
+    background: #fff;
+    padding: 5px;
+  }
+
+  .tags-list dt {
+    float: left;
+  }
+
+  .tags-list dd {
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .tags-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .tags-list a {
+    float: left;
+    margin: 0 7px;
+    margin-bottom: 5px;
+    padding: 0 20px;
+    height: 30px;
+    line-height: 30px;
+    background-color: @primary-color-light;
+    border-radius: 30px;
+    color: #333333;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .recomendations-nav {
+    height: 65px;
+    line-height: 65px;
+    text-transform: uppercase;
+
+    i {
+      position: relative;
+      top: 3px;
+    }
+  }
+
+  .recomendations-action {
+    height: 60px;
+    line-height: 60px;
+  }
+
+  .recomendations-body {
+    .clearfix();
+
+    padding-top: 15px;
+
+    .img-frame img {
+      width: 100%;
+      height: 100px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      padding: 15px 0;
+    }
+
+    .fa-exchange {
+      transform: rotate(90deg);
+    }
+
+    .your-path, .rabbit-hole {
+      float: left;
+      width: 50%;
+      padding: 0 15px;
+      font-size: 12px;
+      height: 860px;
+      padding-bottom: 40px;
+      overflow: hidden;
+
+      ul {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .your-path {
+      border-right: 1px solid @gray;
+    }
+
+    .rabbit-hole .recomendations-body-pager,
+    .your-path .recomendations-body-pager {
+      position: relative;
+      height: 40px;
+      line-height: 40px;
+      background-color: white;
+
+      a {
+        height: 100%;
+        width: 100%;
+        display: block; 
+      }
+
+      .border-top {
+        border-top: 1px solid @gray;
+      }
+
+      .border-left {
+        border-left: 1px solid @gray;
+      }
+    }
+  }
+
+  .comments-header {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+
+    .fa-plus {
+      color: @primary-color;
+    }
+  }
+
+  form[name=createComentForm] {
+    .clearfix();
+    padding: 10px 20px;
+
+    textarea {
+      width: 100%;
+      border: none;
+      background-color: #eee;
+      margin: 20px 0;
+    }
+
+    button[type=submit] {
+      width: 190px;
+      height: 40px;
+
+      background-color: @primary-color;
+      border: none;
+    }
+  }
+
+  .comments-wrapper .comment-box {
+    margin: 20px;
+    background-color: #eee;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+  .comment-user {
+    padding: 20px;
+    line-height: 50px;
+
+    .img-box {
+      padding-right: 20px;
+    }
+
+    a {
+      color: black;
+      &:hover {
+        color: @primary-color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .frame {
+    padding-left: 95px;
+    padding-bottom: 15px;
+  }
+
+  .follow-button {
+    border: none;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    @media(max-width: @screen-xs-max){
+      font-size: 12px;
+    }
+  }
+
+  .post-menu {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background-color: @primary-color;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 26px;
+    cursor: pointer;
+
+    .dropdown-menu {
+      top: 30px;
+      right: -16px;
+
+      &::before {
+        right: 22px;
+      }
+    }
+  }
+}
+
+
+.post-main-row {
+  @media(max-width: @screen-xs-max){
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}

@@ -1,0 +1,171 @@
+.thumb-editor {
+  position: relative;
+  padding: 4em;
+  border: 1px solid @gray;
+  overflow: hidden;
+  height: 320px;
+  margin: 0 auto;
+}
+
+.resize-container {
+    position: relative;
+    display: inline-block;
+    cursor: move;
+    margin: 0 auto;
+}
+
+.resize-container .resize-image {
+    display: block;
+}
+
+.resize-container:hover img,
+.resize-container:active img {
+    outline: 2px dashed rgba(222,60,80,.9);
+}
+
+.resize-container {
+    position: relative;
+    display: inline-block;
+    cursor: move;
+    margin: 0 auto;
+}
+
+.resize-container img {
+    display: block
+}
+
+.resize-container:hover img,
+.resize-container:active img {
+    outline: 2px dashed rgba(222,60,80,.9);
+}
+
+.resize-handle-ne,
+.resize-handle-ne,
+.resize-handle-se,
+.resize-handle-nw,
+.resize-handle-sw {
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: rgba(222,60,80,.9);
+    z-index: 999;
+}
+
+.resize-handle-nw {
+    top: -5px;
+    left: -5px;
+    cursor: nw-resize;
+}
+
+.resize-handle-sw {
+    bottom: -5px;
+    left: -5px;
+    cursor: sw-resize;
+}
+
+.resize-handle-ne {
+    top: -5px;
+    right: -5px;
+    cursor: ne-resize;
+}
+
+.resize-handle-se {
+    bottom: -5px;
+    right: -5px;
+    cursor: se-resize;
+}
+
+.overlay {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -100px;
+    z-index: 999;
+    width: 200px;
+    height: 200px;
+    border: solid 2px rgba(222,60,80,.9);
+    box-sizing: content-box;
+    pointer-events: none;
+}
+
+.overlay:after,
+.overlay:before,
+.overlay-inner:after,
+.overlay-inner:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.overlay:before,
+.overlay:after {
+    top: -40px;
+    border-bottom: dashed 2px rgba(222,60,80,.9);
+}
+
+.overlay-inner:after,
+.overlay-inner:before {
+    bottom: -40px;
+    border-top: dashed 2px rgba(222,60,80,.9);
+}
+
+.overlay:after {
+    left: -40px;
+    border-right: dashed 2px rgba(222,60,80,.9);
+}
+
+.overlay:before {
+    right: -40px;
+    border-left: dashed 2px rgba(222,60,80,.9);
+}
+
+.overlay-inner:after {
+    left: -40px;
+    border-right: dashed 2px rgba(222,60,80,.9);
+}
+
+.overlay-inner:before {
+    right: -40px;
+    border-left: dashed 2px rgba(222,60,80,.9);
+}
+
+.btn-crop,
+.btn-rotate,
+.btn-edit,
+.btn-done,
+.btn-reset {
+    position: absolute;
+    vertical-align: bottom;
+    right: 5px;
+    bottom: 5px;
+    padding: 6px 10px;
+    z-index: 100;
+    background-color: @primary-color;
+    border: none;
+    color: #FFF;
+    outline: none;
+}
+
+.btn-rotate {
+    right: 65px;
+}
+
+.btn-crop {
+    right: 132px;
+}
+
+.btn-reset {
+    right: 188px;
+}
+
+.a-tip {
+    position: absolute;
+    vertical-align: bottom;
+    left: 15px;
+    top: 10px;
+    z-index: 999;
+}
